@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>
+      Notes
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="addNote()">
+        <ion-icon slot="icon-only" name="clipboard"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list>
+    <!-- [routerLink]="'/notes/' + note.id" routerDirection="forward" -->
+    <ion-item button detail *ngFor="let note of notes | async">
+      <ion-label>{{ note.id }} : {{note.title}}</ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ion-button (click)="toggleState()">
+    Toggle
+  </ion-button>
+
+</ion-content>
